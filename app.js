@@ -9,10 +9,10 @@
 const Y = 45000;
 const N = 9;
 
-const flag = false;
+let flag = false;
 
 // 5,000円ベース
-for (let i = 1; i <= 8; i++) {
+for (let i = 0; i <= 8; i++) {
   // A は千円札の枚数、鶴亀算により算出。
   const A = (10000 * N - Y) / 9000;
   const sumMoney = 10000 * (N - A - i) + 5000 * i + 1000 * A;
