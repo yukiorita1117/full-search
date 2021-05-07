@@ -13,17 +13,18 @@ const H = [10, 30, 40, 20];
 // const N = 6;
 // const H = [30, 10, 60, 10, 60, 50];
 
-const cost = [];
+const memo = [];
 
 // 最初のコストは0
-cost[0] = 0;
-cost[1] = Math.abs(H[1] - H[0]);
+memo[0] = 0;
+memo[1] = Math.abs(H[1] - H[0]);
 
 for (let i = 2; i < N; i++) {
-  const st1 = cost[i - 1] + Math.abs(H[i] - H[i - 1]);
-  const st2 = cost[i - 2] + Math.abs(H[i] - H[i - 2]);
+  const st1 = memo[i - 1] + Math.abs(H[i] - H[i - 1]);
+  const st2 = memo[i - 2] + Math.abs(H[i] - H[i - 2]);
 
-  cost[i] = Math.min(st1, st2);
+  memo[i] = Math.min(st1, st2);
 }
 
-console.log("最小のcostの総和は", cost[N - 1]);
+console.log("最小のcostの総和は", memo);
+console.log("最小のcostの総和は", memo[N - 1]);
